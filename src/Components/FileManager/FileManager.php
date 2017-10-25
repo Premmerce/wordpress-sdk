@@ -61,12 +61,10 @@ class FileManager{
 	}
 
 	/**
-	 * @param string $file
-	 *
 	 * @return string
 	 */
-	public function locateAsset($file){
-		return $this->pluginUrl . 'assets/' . $file;
+	public function getPluginUrl(){
+		return $this->pluginUrl;
 	}
 
 	/**
@@ -95,6 +93,16 @@ class FileManager{
 
 		return $content;
 	}
+
+	/**
+	 * @param string $file
+	 *
+	 * @return string
+	 */
+	public function locateAsset($file){
+		return $this->pluginUrl . 'assets/' . $file;
+	}
+
 
 	/**
 	 * @param string $template
