@@ -1,4 +1,4 @@
-<?php namespace Premmerce\WordpressSDK\Components\Plugins;
+<?php namespace Premmerce\WordpressSDK\Components\Plugin;
 
 
 interface PluginInterface{
