@@ -1,4 +1,4 @@
-<?php namespace WordpressSDK\Components\Plugin;
+<?php namespace WordpressSDK\Plugin;
 
 
 interface PluginInterface{
