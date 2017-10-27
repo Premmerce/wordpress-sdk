@@ -1,4 +1,4 @@
-<?php namespace Premmerce\WordpressSDK\Components\Plugin;
+<?php namespace WordpressSDK\Components\Plugin;
 
 
 interface PluginInterface{
@@ -24,5 +24,5 @@ interface PluginInterface{
 	 * Fired when the plugin is uninstalled
 	 */
 	public static function uninstall();
-	
+
 }
