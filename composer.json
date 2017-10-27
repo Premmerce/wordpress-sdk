@@ -14,6 +14,5 @@
       "WordpressSDK\\": "src"
     }
   },
-  "minimum-stability": "stable",
-  "require": {}
+  "minimum-stability": "stable"
 }
