@@ -1,4 +1,4 @@
-<?php namespace WordpressSDK\FileManager;
+<?php namespace Premmerce\SDK\V1\FileManager;
 
 
 class FileManager{

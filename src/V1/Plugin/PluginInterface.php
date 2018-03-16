@@ -1,4 +1,4 @@
-<?php namespace WordpressSDK\Plugin;
+<?php namespace Premmerce\SDK\V1\Plugin;
 
 
 interface PluginInterface{

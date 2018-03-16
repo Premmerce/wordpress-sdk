@@ -1,4 +1,4 @@
-<?php namespace WordpressSDK\Notifications;
+<?php namespace Premmerce\SDK\V1\Notifications;
 
 class AdminNotifier{
 
