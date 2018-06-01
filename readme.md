@@ -73,7 +73,7 @@ wp_enqueue_style('my_style', $fileManager->locateAsset('front/css/style.css'));
 
 Class is responsible for displaying messages in admin area. AdminNotifier should be instantiated, before `admin_notices` action
 
-###push
+### push
 
 Show message on admin_notices action
 
@@ -88,7 +88,7 @@ params:
 $notifier->push('Message text', AdminNotifier::SUCCESS, true)
 
 ```
-###flash
+### flash
 
 Save flash message to show during next request
 
