@@ -26,11 +26,11 @@ params:
     
 Includes template located in plugin `views` folder with passed variables in scope
 
+Each template located in `views/forntend` directory can be overridden in theme in `/plugin_name/` directory
 
 ```php
 
 $fileManager->includeTemplate('admin/index.php',['title' => 'My title']);
-
 ```
 
 ### renderTemplate
@@ -43,6 +43,7 @@ params:
     
 Returns rendered template located in plugin `views` folder with passed variables in scope
 
+Each template located in `views/forntend` directory can be overridden in theme in `/plugin_name/` directory
 
 ```php
 
@@ -55,6 +56,7 @@ $rendered = $fileManager->includeTemplate('admin/index.php',['title' => 'My titl
 locateAsset(string $file)
 
 Returns asset url located in plugin `assets` folder 
+
 params:
     * string $template - relative path to file
     
@@ -64,5 +66,42 @@ params:
 $url = $fileManager->locateAsset('admin/css/style.css');
 
 wp_enqueue_style('my_style', $fileManager->locateAsset('front/css/style.css'));
+
+```
+
+## AdminNotifier
+
+Class is responsible for displaying messages in admin area. AdminNotifier should be instantiated, before `admin_notices` action
+
+###push
+
+Show message on admin_notices action
+
+push(string $message, string $type = self::SUCCESS, bool $isDismissible = false)
+
+params:
+    * string $message - message text
+    * string $type  - message type, one of predefined constants: AdminNotifier::SUCCESS|AdminNotifier::ERROR|AdminNotifier::WARNING|AdminNotifier::INFO
+    * bool $isDismissible - can user dismiss message
+```php
+
+$notifier->push('Message text', AdminNotifier::SUCCESS, true)
+
+```
+###flash
+
+Save flash message to show during next request
+
+flash(string $message, string $type = self::SUCCESS, bool $isDismissible = false)
+
+params:
+    * string $message - message text
+    * string $type  - message type, one of predefined constants: AdminNotifier::SUCCESS|AdminNotifier::ERROR|AdminNotifier::WARNING|AdminNotifier::INFO
+    * bool $isDismissible - can user dismiss message
+    
+
+```php
+
+$notifier->flash('Message text', AdminNotifier::SUCCESS, true)
 
 ```
