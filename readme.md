@@ -108,3 +108,10 @@ params:
 $notifier->flash('Message text', AdminNotifier::SUCCESS, true)
 
 ```
+
+### Changelog
+
+#### V2
+
+* Added second parameter to FileManager `__construct()`
+* Added `flash` method to AdminNotifier
