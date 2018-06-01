@@ -5,9 +5,10 @@
 File manager is responsible for plugin resources(assets, views, paths) management.
 Class should be initialized with plugin main file full path as parameter.
 
+
 params:
-   * string $mainFile - main plugin file path
-   * string $templatePath - theme directory to override plugin templates located in `frontend` directory
+* string $mainFile - main plugin file path
+* string $templatePath - theme directory to override plugin templates located in `frontend` directory
    
 ```php
     $fileManager = new FileManager($mainFile);
@@ -20,9 +21,10 @@ params:
 
 includeTemplate(string $template, array $variables = [])
 
-params:
-    * string $template - relative path to file
-    * array $variables - array of variables used in template file
+
+params:  
+* string $template - relative path to file
+* array $variables - array of variables used in template file
     
 Includes template located in plugin `views` folder with passed variables in scope
 
@@ -38,8 +40,8 @@ $fileManager->includeTemplate('admin/index.php',['title' => 'My title']);
 renderTemplate(string $template, array $variables = [])
 
 params:
-    * string $template - relative path to file
-    * array $variables - array of variables used in template file
+* string $template - relative path to file
+* array $variables - array of variables used in template file
     
 Returns rendered template located in plugin `views` folder with passed variables in scope
 
@@ -58,7 +60,7 @@ locateAsset(string $file)
 Returns asset url located in plugin `assets` folder 
 
 params:
-    * string $template - relative path to file
+* string $template - relative path to file
     
 
 ```php
@@ -80,9 +82,10 @@ Show message on admin_notices action
 push(string $message, string $type = self::SUCCESS, bool $isDismissible = false)
 
 params:
-    * string $message - message text
-    * string $type  - message type, one of predefined constants: AdminNotifier::SUCCESS|AdminNotifier::ERROR|AdminNotifier::WARNING|AdminNotifier::INFO
-    * bool $isDismissible - can user dismiss message
+* string $message - message text
+* string $type  - message type, one of predefined constants: AdminNotifier::SUCCESS|AdminNotifier::ERROR|AdminNotifier::WARNING|AdminNotifier::INFO
+* bool $isDismissible - can user dismiss message
+
 ```php
 
 $notifier->push('Message text', AdminNotifier::SUCCESS, true)
@@ -95,9 +98,9 @@ Save flash message to show during next request
 flash(string $message, string $type = self::SUCCESS, bool $isDismissible = false)
 
 params:
-    * string $message - message text
-    * string $type  - message type, one of predefined constants: AdminNotifier::SUCCESS|AdminNotifier::ERROR|AdminNotifier::WARNING|AdminNotifier::INFO
-    * bool $isDismissible - can user dismiss message
+* string $message - message text
+* string $type  - message type, one of predefined constants: AdminNotifier::SUCCESS|AdminNotifier::ERROR|AdminNotifier::WARNING|AdminNotifier::INFO
+* bool $isDismissible - can user dismiss message
     
 
 ```php
