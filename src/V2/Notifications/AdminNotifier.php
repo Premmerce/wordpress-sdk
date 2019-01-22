@@ -57,12 +57,15 @@ class AdminNotifier{
 	private function process(){
 		$messages = get_transient($this->key);
 
-		if(is_array($messages)){
+		//Resolve conflict with background process
+		if(!wp_doing_ajax()){
+			if(is_array($messages)){
 
-			delete_transient($this->key);
+				delete_transient($this->key);
 
-			foreach($messages as $message){
-				$this->push($message['message'], $message['type'], $message['dismissible']);
+				foreach($messages as $message){
+					$this->push($message['message'], $message['type'], $message['dismissible']);
+				}
 			}
 		}
 	}
