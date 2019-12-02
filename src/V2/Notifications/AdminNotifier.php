@@ -1,5 +1,7 @@
 <?php namespace Premmerce\SDK\V2\Notifications;
 
+use YeEasyAdminNotices\V1\AdminNotice;
+
 class AdminNotifier{
 
 	const ERROR = 'error';
@@ -14,7 +16,6 @@ class AdminNotifier{
 
 	public function __construct(){
 		$this->key .= get_current_user_id();
-		$this->process();
 	}
 
 	/**
@@ -25,10 +26,7 @@ class AdminNotifier{
 	 * @param bool $isDismissible
 	 */
 	public function push($message, $type = self::SUCCESS, $isDismissible = false){
-		$dismissible = $isDismissible? "is-dismissible" : '';
-		add_action('admin_notices', function() use ($message, $type, $dismissible){
-			echo "<div class='notice notice-{$type} {$dismissible}'><p>{$message}</p></div>";
-		});
+		$this->create($message, $type, $isDismissible)->show();
 	}
 
 	/**
@@ -39,36 +37,27 @@ class AdminNotifier{
 	 * @param bool $isDismissible
 	 */
 	public function flash($message, $type = self::SUCCESS, $isDismissible = false){
-		$message  = ['message' => $message, 'type' => $type, 'dismissible' => $isDismissible];
-		$messages = get_transient($this->key);
-
-		if(!is_array($messages)){
-			$messages = [];
-		}
-
-		$messages[] = $message;
-
-		set_transient($this->key, $messages, MINUTE_IN_SECONDS);
+		add_action('admin_footer', function() use ($message, $type, $isDismissible){
+			$this->create($message, $type, $isDismissible)->showOnNextPage();
+		});
 	}
 
 	/**
-	 * Show flash messages
+	 * @param string $message
+	 * @param string $type
+	 * @param bool $isDismissible
+	 *
+	 * @return AdminNotice
 	 */
-	private function process(){
-		$messages = get_transient($this->key);
+	private function create($message, $type, $isDismissible){
+		$notice = AdminNotice::create()
+			->html($message)
+			->type($type);
 
-		//Resolve conflict with background process
-		if(!wp_doing_ajax()){
-			if(is_array($messages)){
-
-				delete_transient($this->key);
-
-				foreach($messages as $message){
-					$this->push($message['message'], $message['type'], $message['dismissible']);
-				}
-			}
+		if($isDismissible){
+			$notice->dismissible();
 		}
+
+		return $notice;
 	}
-
-
 }
