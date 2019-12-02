@@ -14,5 +14,8 @@
       "Premmerce\\SDK\\": "src"
     }
   },
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "require": {
+    "yahnis-elsts/admin-notices": "^1.1"
+  }
 }

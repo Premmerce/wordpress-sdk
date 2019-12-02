@@ -1,0 +1,54 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "e2207186414df52eb0ca177fd5f61686",
+    "packages": [
+        {
+            "name": "yahnis-elsts/admin-notices",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/YahnisElsts/admin-notices.git",
+                "reference": "7e9e84588b58653194e6a4f2fdd71274064882f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/YahnisElsts/admin-notices/zipball/7e9e84588b58653194e6a4f2fdd71274064882f4",
+                "reference": "7e9e84588b58653194e6a4f2fdd71274064882f4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "AdminNotice.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Yahnis Elsts",
+                    "email": "whiteshadow@w-shadow.com"
+                }
+            ],
+            "description": "A utility library for WordPress plugins that makes it easier to create admin notices. Supports persistently dismissible notices.",
+            "time": "2019-02-06T10:22:54+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
